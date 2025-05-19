@@ -25,3 +25,9 @@ app.get('/users', (req, res) => {
   ]);
 });
 
+app.get('/tasks', (req, res) => {
+  res.json([
+    { id: 1, title: 'Set up Express', completed: true, assignedTo: 1 },
+    { id: 2, title: 'Learn Git workflow', completed: false, assignedTo: 2 }
+  ]);
+});
