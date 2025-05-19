@@ -14,10 +14,11 @@ app.use((err,req,res,next)=>{
     if(err instanceof SyntaxError && err.status===400 && 'body' in err){
         console.error('Bad JSON:',err);
         return res.status(400).json({error:'invalid JSON provided', 
-        details:'please check request body'});}
-next(err);
+        details:'please check request body'});
     }
-);
+    next(err);
+});
+
 app.get('/users', (req, res) => {
   res.json([
     { id: 1, name: 'Alice', role: 'Developer' },
